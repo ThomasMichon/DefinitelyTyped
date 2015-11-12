@@ -440,6 +440,8 @@ interface KnockoutStatic {
     renderTemplate(template: string, viewModel: any, options?: any, target?: any, renderMode?: any): any;
 	unwrap<T>(value: KnockoutObservable<T> | T): T;
 
+    ignoreDependencies<T>(callback: (...args: any[]) => T, callbackTarget?: any, callbackArgs?: any[]): T;
+
 	computedContext: KnockoutComputedContext;
 
     //////////////////////////////////
