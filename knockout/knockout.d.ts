@@ -391,8 +391,15 @@ interface KnockoutTemplateEngine extends KnockoutNativeTemplateEngine {
 }
 
 /////////////////////////////////
+interface KnockoutOptions {
+    deferUpdates: boolean;
+    preferJQueryEvents: boolean;
+    useOnlyNativeEvents: boolean;
+}
 
+/////////////////////////////////
 interface KnockoutStatic {
+    options: KnockoutOptions;
     utils: KnockoutUtils;
     memoization: KnockoutMemoization;
 
