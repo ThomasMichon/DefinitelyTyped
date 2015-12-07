@@ -1,4 +1,4 @@
-// Type definitions for Knockout v3.2.0
+﻿// Type definitions for Knockout v3.2.0
 // Project: http://knockoutjs.com
 // Definitions by: Boris Yankov <https://github.com/borisyankov/>, Igor Oleinikov <https://github.com/Igorbek/>, Clément Bourgeois <https://github.com/moonpyk/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -71,7 +71,7 @@ interface KnockoutComputedStatic {
     fn: KnockoutComputedFunctions<any>;
 
     <T>(): KnockoutComputed<T>;
-    <T>(func: () => T, context?: any, options?: any): KnockoutComputed<T>;
+    <T>(func: () => T, context?: any, options?: KnockoutComputedOptions<T>): KnockoutComputed<T>;
     <T>(def: KnockoutComputedDefine<T>, context?: any): KnockoutComputed<T>;
 }
 
@@ -110,14 +110,17 @@ interface KnockoutObservable<T> extends KnockoutSubscribable<T>, KnockoutObserva
     extend(requestedExtenders: { [key: string]: any; }): KnockoutObservable<T>;
 }
 
-interface KnockoutComputedDefine<T> {
-	read(): T;
+interface KnockoutComputedOptions<T> {
 	write? (value: T): void;
 	disposeWhenNodeIsRemoved?: Node;
 	disposeWhen? (): boolean;
 	owner?: any;
 	deferEvaluation?: boolean;
 	pure?: boolean;
+}
+
+interface KnockoutComputedDefine<T> extends KnockoutComputedOptions<T> {
+	read(): T;
 }
 
 interface KnockoutBindingContext {
