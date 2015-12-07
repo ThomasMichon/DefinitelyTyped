@@ -1,4 +1,4 @@
-﻿// Type definitions for Knockout v3.2.0
+// Type definitions for Knockout v3.2.0
 // Project: http://knockoutjs.com
 // Definitions by: Boris Yankov <https://github.com/borisyankov/>, Igor Oleinikov <https://github.com/Igorbek/>, Clément Bourgeois <https://github.com/moonpyk/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -274,7 +274,7 @@ interface KnockoutUtils {
         dontLimitMoves?: boolean;
     }): Array<KnockoutArrayChange<T>>;
 
-    extend(target: Object, source: Object): Object;
+    extend<B extends {}, E extends {}>(target: B, source: E): B & E;
 
     fieldsIncludedWithJsonPost: any[];
 
